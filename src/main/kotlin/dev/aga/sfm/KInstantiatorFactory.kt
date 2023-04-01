@@ -40,6 +40,7 @@ class KInstantiatorFactory(asmFactoryProvider: AsmFactoryProvider) : Instantiato
         /**
          * Gets the [KClass] for the provided [Type] if we are able to support it.
          *
+         * @param target the [Type] to fetch the [KClass] for
          * @return the [KClass] for the [target] if we can support it, otherwise ```null```
          */
         internal fun toKClass(target: Type): KClass<*>? {
