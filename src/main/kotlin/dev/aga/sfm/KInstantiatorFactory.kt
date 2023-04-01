@@ -36,11 +36,18 @@ class KInstantiatorFactory(asmFactoryProvider: AsmFactoryProvider) : Instantiato
         )
     }
 
-    internal fun toKClass(target: Type): KClass<*>? {
-        val targetClazz = Class.forName(target.typeName).kotlin
-        if (targetClazz.isData) {
-            return targetClazz
+    companion object {
+        /**
+         * Gets the [KClass] for the provided [Type] if we are able to support it.
+         *
+         * @return the [KClass] for the [target] if we can support it, otherwise ```null```
+         */
+        internal fun toKClass(target: Type): KClass<*>? {
+            val targetClazz = Class.forName(target.typeName).kotlin
+            if (targetClazz.isData) {
+                return targetClazz
+            }
+            return null
         }
-        return null
     }
 }
