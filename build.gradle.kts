@@ -10,6 +10,12 @@ repositories {
     mavenCentral()
 }
 
+configurations {
+    configurations.testImplementation.get().apply {
+        extendsFrom(configurations.compileOnly.get())
+    }
+}
+
 // this is ugly, but until https://github.com/dependabot/dependabot-core/issues/1164
 // is resolved, we need to either duplicate the version strings or use something
 // like this
@@ -23,8 +29,6 @@ dependencies {
 
     compileOnly("org.simpleflatmapper:sfm-jooq:$sfmVersion")
     compileOnly("org.jooq:jooq-kotlin:$jooqVersion")
-
-    testImplementation("org.simpleflatmapper:sfm-jooq:$sfmVersion")
 
     testImplementation(platform("org.junit:junit-bom:$junitVersion"))
     testImplementation("org.junit.jupiter:junit-jupiter")
