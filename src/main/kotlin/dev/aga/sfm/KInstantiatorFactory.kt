@@ -7,8 +7,6 @@ import org.simpleflatmapper.reflect.Parameter
 import org.simpleflatmapper.reflect.asm.AsmFactoryProvider
 import org.simpleflatmapper.util.BiFunction
 import java.lang.reflect.Type
-import kotlin.contracts.ExperimentalContracts
-import kotlin.contracts.contract
 import kotlin.reflect.KClass
 
 class KInstantiatorFactory(asmFactoryProvider: AsmFactoryProvider) : InstantiatorFactory(asmFactoryProvider) {

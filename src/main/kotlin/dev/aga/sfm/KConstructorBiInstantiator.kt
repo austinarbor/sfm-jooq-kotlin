@@ -9,7 +9,7 @@ import kotlin.reflect.KParameter
 
 class KConstructorBiInstantiator<S1, S2, T>(
     private val def: KConstructorInstantiatorDefinition,
-    private val injections: Map<Parameter, BiFunction<in S1, in S2, *>>
+    private val injections: Map<Parameter, BiFunction<in S1, in S2, *>>,
 ) : BiInstantiator<S1, S2, T> {
 
     private val argBuilder: BiArgumentBuilder<S1, S2> = BiArgumentBuilder(def, injections)
