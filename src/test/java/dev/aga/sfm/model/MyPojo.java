@@ -4,6 +4,15 @@ public class MyPojo {
     private int id;
     private String name;
 
+    public MyPojo() {
+        this(0, null);
+    }
+
+    public MyPojo(int id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
     public int getId() {
         return id;
     }
