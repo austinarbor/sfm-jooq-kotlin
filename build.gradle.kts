@@ -53,6 +53,12 @@ publishing {
     }
 }
 
+koverReport {
+    xml {
+        onCheck = true
+    }
+}
+
 tasks {
     test {
         useJUnitPlatform()

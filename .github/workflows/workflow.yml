@@ -26,8 +26,8 @@ jobs:
       - name: build project
         run: ./gradlew build -x test
 
-      - name: run tests
-        run: ./gradlew test
+      - name: run checks
+        run: ./gradlew check
 
       - name: publish test results
         uses: mikepenz/action-junit-report@v3
