@@ -2,6 +2,7 @@ plugins {
     kotlin("jvm") version "1.8.20"
     `java-library`
     `maven-publish`
+    id("org.jetbrains.kotlinx.kover") version "0.7.0-Alpha"
 }
 
 group = "dev.aga"
@@ -49,6 +50,12 @@ publishing {
 
             from(components["java"])
         }
+    }
+}
+
+koverReport {
+    xml {
+        onCheck = true
     }
 }
 
