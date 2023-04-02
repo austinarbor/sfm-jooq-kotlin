@@ -1,6 +1,6 @@
 # sfm-jooq-kotlin
 
-[![](https://jitpack.io/v/dev.aga/sfm-jooq-kotlin.svg)](https://jitpack.io/#dev.aga/sfm-jooq-kotlin) ![github actions](https://github.com/austinarbor/sfm-jooq-kotlin/actions/workflows/workflow.yml/badge.svg) [![codecov](https://codecov.io/gh/austinarbor/sfm-jooq-kotlin/branch/main/graph/badge.svg?token=A4U35X0ZSJ)](https://codecov.io/gh/austinarbor/sfm-jooq-kotlin)
+[![Maven Central](https://img.shields.io/maven-central/v/dev.aga/sfm-jooq-kotlin?color=light)](https://central.sonatype.com/namespace/dev.aga) [![](https://jitpack.io/v/dev.aga/sfm-jooq-kotlin.svg)](https://jitpack.io/#dev.aga/sfm-jooq-kotlin) ![github actions](https://github.com/austinarbor/sfm-jooq-kotlin/actions/workflows/workflow.yml/badge.svg) [![codecov](https://codecov.io/gh/austinarbor/sfm-jooq-kotlin/branch/main/graph/badge.svg?token=A4U35X0ZSJ)](https://codecov.io/gh/austinarbor/sfm-jooq-kotlin)
 
 This library is a simple enhancement on top of `sfm-jooq` to provide additional kotlin support. Currently, support has
 only been added for data classes. This repo is brand new and will be constantly evolving, so I am not providing any
@@ -19,14 +19,21 @@ backwards compatibility guarantees between releases for the time being.
 Note: For general usage of the `SelectQueryMapper`, see
 the [SimpleFlatMapper docs](https://simpleflatmapper.org/0106-getting-started-jooq.html)
 
-First, add the dependency to your project using [jitpack](https://jitpack.io/#dev.aga/sfm-jooq-kotlin)
+First, add the dependency to your project
+from [maven central](https://central.sonatype.com/artifact/dev.aga/sfm-jooq-kotlin)
+or [jitpack](https://jitpack.io/#dev.aga/sfm-jooq-kotlin)
 
 <details>
    <summary>build.gradle</summary>
 
 ```groovy
 repositories {
-    maven { url 'https://jitpack.io' }
+    mavenCentral()
+    maven { url 'https://jitpack.io' } // only required if pulling from jitpack
+}
+
+dependencies {
+    implementation 'dev.aga:sfm-jooq-kotlin:0.0.1'
 }
  ```
 
@@ -37,7 +44,12 @@ repositories {
 
 ```kotlin
 repositories {
-    maven { url = uri("https://jitpack.io") }
+    mavenCentral()
+    maven { url = uri("https://jitpack.io") } // only required if pulling from jitpack
+}
+
+dependencies {
+    implementation("dev.aga:sfm-jooq-kotlin:0.0.1")
 }
 ```
 
