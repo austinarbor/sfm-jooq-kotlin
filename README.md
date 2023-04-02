@@ -1,5 +1,7 @@
 # sfm-jooq-kotlin
 
+[![](https://jitpack.io/v/dev.aga/sfm-jooq-kotlin.svg)](https://jitpack.io/#dev.aga/sfm-jooq-kotlin) ![github actions](https://github.com/austinarbor/sfm-jooq-kotlin/actions/workflows/workflow.yml/badge.svg) [![codecov](https://codecov.io/gh/austinarbor/sfm-jooq-kotlin/branch/main/graph/badge.svg?token=A4U35X0ZSJ)](https://codecov.io/gh/austinarbor/sfm-jooq-kotlin)
+
 This library is a simple enhancement on top of `sfm-jooq` to provide additional kotlin support. Currently, support has
 only been added for data classes. This repo is brand new and will be constantly evolving, so I am not providing any
 backwards compatibility guarantees between releases for the time being.
@@ -14,8 +16,32 @@ backwards compatibility guarantees between releases for the time being.
 
 # Usage
 
-For general usage of the `SelectQueryMapper` , see
+Note: For general usage of the `SelectQueryMapper`, see
 the [SimpleFlatMapper docs](https://simpleflatmapper.org/0106-getting-started-jooq.html)
+
+First, add the dependency to your project using [jitpack](https://jitpack.io/#dev.aga/sfm-jooq-kotlin)
+
+<details>
+   <summary>build.gradle</summary>
+
+```groovy
+repositories {
+    maven { url 'https://jitpack.io' }
+}
+ ```
+
+</details>
+
+<details>
+   <summary>build.gradle.kts</summary>
+
+```kotlin
+repositories {
+    maven { url = uri("https://jitpack.io") }
+}
+```
+
+</details>
 
 ```kotlin
 // note: each property of the class must have a default value
