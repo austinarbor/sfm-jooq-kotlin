@@ -1,8 +1,11 @@
+import java.util.*
+
 plugins {
     kotlin("jvm") version "1.8.20"
     `java-library`
     `maven-publish`
     signing
+    id("io.github.gradle-nexus.publish-plugin") version "1.3.0"
     id("org.jetbrains.kotlinx.kover") version "0.7.0-Alpha"
 }
 
@@ -64,10 +67,6 @@ publishing {
         create<MavenPublication>("maven") {
             from(components["java"])
 
-            groupId = project.group as String
-            artifactId = project.name
-            version = project.version as String
-
             pom {
                 name.set("${project.group}:${project.name}")
                 description.set("Extension library for sfm-jooq to add better kotlin support")
@@ -96,23 +95,30 @@ publishing {
             }
         }
     }
+}
+
+nexusPublishing {
     repositories {
-        maven {
-            name = "OSSRH"
-            url = uri("https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/")
-            credentials {
-                username = System.getenv("OSSH_USERNAME")
-                password = System.getenv("OSSH_PASSWORD")
-            }
+        sonatype {
+            nexusUrl.set(uri("https://s01.oss.sonatype.org/service/local/"))
+            snapshotRepositoryUrl.set(uri("https://s01.oss.sonatype.org/content/repositories/snapshots/"))
+            username.set(System.getenv("OSSH_USERNAME"))
+            password.set(System.getenv("OSSH_PASSWORD"))
         }
     }
 }
 
 signing {
-    isRequired = gradle.taskGraph.allTasks.any { it is PublishToMavenRepository }
     val keyId = System.getenv("OSSH_GPG_KEY_ID")
     val signingKey = System.getenv("OSSH_GPG_SIGNING_KEY")
     val signingPassword = System.getenv("OSSH_GPG_PASSPHRASE")
-    useInMemoryPgpKeys(keyId, signingKey, signingPassword)
+    useInMemoryPgpKeys(keyId, base64Decode(signingKey), signingPassword)
+
     sign(publishing.publications)
+}
+
+fun base64Decode(str: String?): String? {
+    return str?.let {
+        String(Base64.getDecoder().decode(str)).trim()
+    }
 }
