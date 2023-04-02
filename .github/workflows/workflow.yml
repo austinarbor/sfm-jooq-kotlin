@@ -34,3 +34,8 @@ jobs:
         if: success() || failure()
         with:
           report_paths: '**/build/test-results/test/TEST-*.xml'
+
+      - name: upload coverage report
+        uses: codecov/codecov-action@v3
+        with:
+          files: build/reports/kover/report.xml
