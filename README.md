@@ -19,14 +19,21 @@ backwards compatibility guarantees between releases for the time being.
 Note: For general usage of the `SelectQueryMapper`, see
 the [SimpleFlatMapper docs](https://simpleflatmapper.org/0106-getting-started-jooq.html)
 
-First, add the dependency to your project using [jitpack](https://jitpack.io/#dev.aga/sfm-jooq-kotlin)
+First, add the dependency to your project
+from [maven central](https://central.sonatype.com/artifact/dev.aga/sfm-jooq-kotlin)
+or [jitpack](https://jitpack.io/#dev.aga/sfm-jooq-kotlin)
 
 <details>
    <summary>build.gradle</summary>
 
 ```groovy
 repositories {
-    maven { url 'https://jitpack.io' }
+    mavenCentral()
+    maven { url 'https://jitpack.io' } // only required if pulling from jitpack
+}
+
+dependencies {
+    implementation 'dev.aga:sfm-jooq-kotlin:0.0.1'
 }
  ```
 
@@ -37,7 +44,12 @@ repositories {
 
 ```kotlin
 repositories {
-    maven { url = uri("https://jitpack.io") }
+    mavenCentral()
+    maven { url = uri("https://jitpack.io") } // only required if pulling from jitpack
+}
+
+dependencies {
+    implementation("dev.aga:sfm-jooq-kotlin:0.0.1")
 }
 ```
 
