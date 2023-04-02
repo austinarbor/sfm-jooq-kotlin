@@ -16,6 +16,8 @@ class KConstructorBiInstantiator<S1, S2, T>(
 
     override fun newInstance(s1: S1, s2: S2): T {
         val allArgValues = argBuilder.build(s1, s2)
+
+        @Suppress("UNCHECKED_CAST")
         val ctor = def.ctor as KFunction<T>
         val ctorParams = ctor.parameters.associateBy { it.name }
         val invokeArgs: Map<KParameter, Any?> =
