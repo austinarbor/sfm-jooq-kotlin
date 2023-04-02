@@ -109,11 +109,11 @@ nexusPublishing {
 }
 
 signing {
+    isRequired = System.getenv("JITPACK") != "true"
     val keyId = System.getenv("OSSH_GPG_KEY_ID")
     val signingKey = System.getenv("OSSH_GPG_SIGNING_KEY")
     val signingPassword = System.getenv("OSSH_GPG_PASSPHRASE")
     useInMemoryPgpKeys(keyId, base64Decode(signingKey), signingPassword)
-
     sign(publishing.publications)
 }
 
