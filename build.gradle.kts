@@ -1,6 +1,7 @@
 plugins {
     kotlin("jvm") version "1.8.20"
     `java-library`
+    `maven-publish`
 }
 
 group = "dev.aga"
