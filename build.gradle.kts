@@ -1,6 +1,7 @@
 plugins {
     kotlin("jvm") version "1.8.20"
     `java-library`
+    `maven-publish`
 }
 
 group = "dev.aga"
@@ -37,6 +38,18 @@ dependencies {
 
 kotlin {
     jvmToolchain(17)
+}
+
+publishing {
+    publications {
+        create<MavenPublication>("maven") {
+            groupId = project.group as String
+            artifactId = project.name
+            version = project.version as String
+
+            from(components["java"])
+        }
+    }
 }
 
 tasks {
