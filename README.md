@@ -33,7 +33,7 @@ repositories {
 }
 
 dependencies {
-    implementation 'dev.aga:sfm-jooq-kotlin:0.0.1'
+    implementation 'dev.aga:sfm-jooq-kotlin:0.0.2'
 }
  ```
 
@@ -49,7 +49,7 @@ repositories {
 }
 
 dependencies {
-    implementation("dev.aga:sfm-jooq-kotlin:0.0.1")
+    implementation("dev.aga:sfm-jooq-kotlin:0.0.2")
 }
 ```
 
