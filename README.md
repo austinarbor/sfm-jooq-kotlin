@@ -1,6 +1,6 @@
 # sfm-jooq-kotlin
 
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/dev.aga/sfm-jooq-kotlin/badge.svg)](https://maven-badges.herokuapp.com/maven-central/dev.aga/sfm-jooq-kotlin) [![](https://jitpack.io/v/dev.aga/sfm-jooq-kotlin.svg)](https://jitpack.io/#dev.aga/sfm-jooq-kotlin) ![github actions](https://github.com/austinarbor/sfm-jooq-kotlin/actions/workflows/workflow.yml/badge.svg) [![codecov](https://codecov.io/gh/austinarbor/sfm-jooq-kotlin/branch/main/graph/badge.svg?token=A4U35X0ZSJ)](https://codecov.io/gh/austinarbor/sfm-jooq-kotlin)
+[![Maven Central](https://img.shields.io/maven-central/v/dev.aga/sfm-jooq-kotlin?color=light)](https://central.sonatype.com/namespace/dev.aga) [![](https://jitpack.io/v/dev.aga/sfm-jooq-kotlin.svg)](https://jitpack.io/#dev.aga/sfm-jooq-kotlin) ![github actions](https://github.com/austinarbor/sfm-jooq-kotlin/actions/workflows/workflow.yml/badge.svg) [![codecov](https://codecov.io/gh/austinarbor/sfm-jooq-kotlin/branch/main/graph/badge.svg?token=A4U35X0ZSJ)](https://codecov.io/gh/austinarbor/sfm-jooq-kotlin)
 
 This library is a simple enhancement on top of `sfm-jooq` to provide additional kotlin support. Currently, support has
 only been added for data classes. This repo is brand new and will be constantly evolving, so I am not providing any
