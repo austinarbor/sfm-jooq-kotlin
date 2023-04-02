@@ -7,7 +7,6 @@ import org.simpleflatmapper.reflect.Parameter
 import org.simpleflatmapper.reflect.asm.AsmFactoryProvider
 import org.simpleflatmapper.util.BiFunction
 import java.lang.reflect.Type
-import kotlin.reflect.KClass
 
 class KInstantiatorFactory(asmFactoryProvider: AsmFactoryProvider) : InstantiatorFactory(asmFactoryProvider) {
     override fun <S1, S2, T> getBiInstantiator(
@@ -20,10 +19,12 @@ class KInstantiatorFactory(asmFactoryProvider: AsmFactoryProvider) : Instantiato
         builderIgnoresNullValues: Boolean,
     ): BiInstantiator<S1, S2, T> {
 
-        toKClass(target)?.let {
-            val def = KConstructorInstantiatorDefinition(it)
-            return KConstructorBiInstantiator(def, injections)
-        }
+        // if we have a Kotlin Constructor instantiator, return that right away
+        constructors
+            .filterIsInstance<KConstructorInstantiatorDefinition>()
+            .firstOrNull()?.let {
+                return KConstructorBiInstantiator(it, injections)
+            }
 
         return super.getBiInstantiator(
             target,
@@ -34,21 +35,5 @@ class KInstantiatorFactory(asmFactoryProvider: AsmFactoryProvider) : Instantiato
             useAsmIfEnabled,
             builderIgnoresNullValues
         )
-    }
-
-    companion object {
-        /**
-         * Gets the [KClass] for the provided [Type] if we are able to support it.
-         *
-         * @param target the [Type] to fetch the [KClass] for
-         * @return the [KClass] for the [target] if we can support it, otherwise ```null```
-         */
-        internal fun toKClass(target: Type): KClass<*>? {
-            val targetClazz = Class.forName(target.typeName).kotlin
-            if (targetClazz.isData) {
-                return targetClazz
-            }
-            return null
-        }
     }
 }

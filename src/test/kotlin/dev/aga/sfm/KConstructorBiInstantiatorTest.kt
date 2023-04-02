@@ -49,7 +49,6 @@ internal class KConstructorBiInstantiatorTest {
         assertThat(actual).isEqualTo(expected)
     }
 
-
     private fun makeBiFunction(ret: Any): BiFunction<Any, Any, *> {
         return BiFunction<Any, Any, Any> { _, _ -> ret }
     }
