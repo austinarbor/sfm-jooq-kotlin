@@ -6,7 +6,7 @@ plugins {
     `maven-publish`
     signing
     id("io.github.gradle-nexus.publish-plugin") version "1.3.0"
-    id("org.jetbrains.kotlinx.kover") version "0.7.0-Beta"
+    id("org.jetbrains.kotlinx.kover") version "0.7.0"
 }
 
 group = "dev.aga"
