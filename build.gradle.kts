@@ -45,10 +45,12 @@ kotlin {
     jvmToolchain(17)
 }
 
-koverReport {
-    defaults {
-        xml {
-            onCheck = true
+kover {
+    reports {
+        total {
+            xml {
+                onCheck = true
+            }
         }
     }
 }
