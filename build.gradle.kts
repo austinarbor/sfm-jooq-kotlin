@@ -1,7 +1,7 @@
 import java.util.*
 
 plugins {
-    kotlin("jvm") version "2.1.20"
+    kotlin("jvm") version "2.1.21"
     `java-library`
     `maven-publish`
     signing
